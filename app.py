@@ -88,6 +88,5 @@ def create_ticket(client, message, say):
         say("There was a problem creating the ticket", thread_ts=thread_ts)
     
 # Start app
-heroku_port=os.environ.get("PORT")
 if __name__ == "__main__":
-    app.start(port=int(os.environ.get("PORT", heroku_port)))
+    app.start(port=int(os.environ.get("PORT", 3000)))

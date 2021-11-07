@@ -9,6 +9,10 @@ The bot will print the entire thread as the initial comment of the ticket with a
 ![ticket result](assets/ticket_result.png)
 In both scenarios, the bot responds in a thread with either an error message or a success message with the Zendesk ticket number which is linked to the ticket.
 
+##Configuration##
+Zenbot is currently deployed via Github to heroku
+It is configured for the 'superheros1234' Zendesk account and the 'annasgifbin' Slack account.
+
 Assumptions:
 * The users who are creating the tickets have access to the agent interface to view tickets. The bot will still work as expected, but the link output to the ticket will only be accessable by Zendesk agents. Additional funcionality would have to be added to direct the users to the public-facing Help Center (if enabled)
 * The Zendesk account must have "Anybody can submit tickets" enabled or have all Slack users provisioned in Zendesk ahead of time.

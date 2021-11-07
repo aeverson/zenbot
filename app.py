@@ -77,10 +77,7 @@ def create_ticket(client, message, say):
     payload = {"ticket": {"subject": text, "comment": {"body": body}, "requester": user_email, "status":"open"}}
     payloadjson = json.dumps(payload)
     ticket = requests.post(zendesk_url+"/api/v2/tickets.json", data=payloadjson, auth=(zendesk_user, zendesk_token), headers=headers)
-    print(zendesk_user)
-    print(zendesk_token)
     response = ticket.status_code # get response
-    print(ticket.json())
     #if 200 - post in channel with ticket link
     if ticket.status_code == 201:
         ticket_id=str(ticket.json()["ticket"]["id"])

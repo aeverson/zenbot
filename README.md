@@ -9,7 +9,7 @@ The bot will print the entire thread as the initial comment of the ticket with a
 ![ticket result](assets/ticket_result.png)
 In both scenarios, the bot responds in a thread with either an error message or a success message with the Zendesk ticket number which is linked to the ticket.
 
-##Configuration##
+## Configuration
 Zenbot is currently deployed via Github to heroku
 It is configured for the 'superheros1234' Zendesk account and the 'annasgifbin' Slack account.
 

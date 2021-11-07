@@ -15,7 +15,7 @@ app = App(
 
 zendesk_url = os.environ.get("ZD_URL")
 zendesk_token = os.environ.get("ZD_TOKEN")
-zendesk_user = os.environ.get("ZD_EMAIL")+"/token"
+zendesk_user = str(os.environ.get("ZD_EMAIL"))+"/token"
 headers = {'content-type': 'application/json'}
 
 # creates a string containing all messages in the thread, with a note at the bottom about the bot

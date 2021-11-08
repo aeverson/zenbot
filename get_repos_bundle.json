@@ -1,0 +1,46 @@
+{
+  "description": "Get Github repos with new takehome_exercise",
+  "name": "github get repos",
+  "zis_template_version": "2019-10-14",
+  "resources": {
+    "github_get_repos_flow": {
+      "type": "ZIS::Flow",
+      "properties": {
+        "name": "github_get_repos_flow",
+        "definition": {
+          "StartAt": "Zendesk.TicketCreated",
+          "States": {
+            "Zendesk.TicketCreated": {
+              "Type": "Action",
+              "ActionName": "zis:github-get-repos:action:post-to-webhook-site",
+              "End": true
+            }
+          }
+        }
+      }
+    },
+    "post-to-webhook-site": {
+      "type": "ZIS::Action::Http",
+      "properties": {
+        "name": "post-to-webhook-site",
+        "definition": {
+          "method": "GET",
+          "url": "https://api.github.com/orgs/netflix/repos?sort=updated&per_page=5",
+          "headers": [
+          ],
+          "requestBody": {
+          }
+        }
+      }
+    },
+    "ticket_created_jobspec": {
+      "type": "ZIS::JobSpec",
+      "properties": {
+        "name": "ticket_created_jobspec",
+        "event_source": "support",
+        "event_type": "ticket.TicketCreated",
+        "flow_name": "zis:github-get-repos:flow:github_get_repos_flow"
+      }
+    }
+  }
+}
